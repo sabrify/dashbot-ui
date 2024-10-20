@@ -38,17 +38,8 @@ export default function ChatComponent() {
       setMessages([...messages, newMessage]);
       setInputMessage("");
 
-      // Simulate bot response
-      //       setTimeout(() => {
-      //         const botResponse: Message = {
-      //           id: messages.length + 2,
-      //           text: "Thank you for your message. How else can I help you?",
-      //           isBot: true,
-      //         };
-      //         setMessages((prevMessages) => [...prevMessages, botResponse]);
-      //       }, 1000);
-      //     }
-      //   };
+      //  bot response
+
       try {
         const response = await axios.post("http://127.0.0.1:8000/query", {
           question: inputMessage,
@@ -72,7 +63,7 @@ export default function ChatComponent() {
   };
 
   return (
-    <Card className="w-full max-w-md mx-auto h-[600px] flex flex-col">
+    <Card className="w-full max-w-5xl mx-auto my-7 h-[600px] flex flex-col">
       <CardContent className="flex-grow p-4 overflow-hidden">
         <ScrollArea className="h-full pr-4" ref={scrollAreaRef}>
           <div className="space-y-4">
